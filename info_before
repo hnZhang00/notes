@@ -1,0 +1,101 @@
+## before
+
+1. 查找占用 8090 端口的进程 ID
+		# lsof -i :8089
+
+2. 杀掉进程
+		# kill 9480
+
+3. 跳出 for 循环
+    forLabel: for (var i=0; i<10; i++) {
+      console.log(i)
+      if (i>5)
+        break forLabel;
+    }
+
+4. Safari 对 date 的支持：
+		# new Date('2017-08-24')	T
+		# new Date('2017/08/24')	T
+		# new Date('2017-08-24 00:00:00')	F
+		# new Date('2017/08/24 00:00:00')	T
+
+5. 若是预览的图片很小，在 photoswipe 中是不会显示放大镜的，若是高清图，则有
+
+6. angular.fromJson() -> 把 json 字符串解析为对象/对象数组
+	 angular.toJson()
+
+7. angular 直接绑定 keydown 事件，通过 return false; 禁止输入，这样是无效的。但如果通过指令，在指令中获取元素，再绑定事件，又是 OK 的
+
+8. # parseInt() 	取整
+	 # Math.ceil() 	向上取整
+	 # Math.floor() 向下取整
+	 # Math.round() 四舍五入
+
+9. # git branch
+	 # git reset	
+
+10. autoprefixer 导致问题：-webkit-box-orient 在浏览器下看不到
+		/* autoprefixer: off; */
+		-webkit-box-orient: vertical;
+		/* autoprefixer: on; */
+
+11. # npm i -S <=> npm i --save
+	  # npm i -D <=> npm i --save-dev
+
+12. # ssh -i ~/Downloads/25rsa.pub root@172.16.1.25
+		# ssh -add -k key.pem
+		# scp -r ~/deploy-frontend.sh root@172.16.1.25:/usr/lightapps
+
+13. chmod 777 ./*
+
+14. IE 浏览器并不支持 src 直接是 URL 对象
+		这会导致 iframe 中的 blob 内容不展示
+
+15. 文字太长显示省略号：
+
+		<div class="divOut">
+			<div class="divInner">
+				<p class="text"> xxx </p>
+			</div>
+		</div>
+
+		.divOut {
+			display: flex;
+		}
+		.divInner {
+			flex: 1;
+			display: flex;
+		}
+		.text{
+			flex: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		# 如上写法是会失效的，因为子元素中的 white-space: nowrap; 会把父元素撑开。应改成如下：
+
+		.divOut {
+			display: flex;
+		}
+		.divInner {
+			width: 0;
+			flex: 1;
+			display: flex;
+		}
+		.text{
+			width: 0;
+			flex: 1;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+16. 数组去重：[ ...new Set(array) ]
+
+17. zoom: 0.8; // 缩放
+
+
+
+
+
