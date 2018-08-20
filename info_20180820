@@ -1,0 +1,9 @@
+1. animation
+		animation: name duration timing-function delay iteration-count direction;
+
+		animation-name: 需要绑定到选择器的 keyframe 名称；
+		animation-duration: 完成动画所花费的时间；
+		animation-timing-funtion: 动画的速度曲线；
+		animation-delay: 动画开始之前的延迟；
+		animation-iteration-count: 动画播放次数；
+		animation-direction: 是否轮流反向播放动画。
