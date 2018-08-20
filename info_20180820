@@ -7,3 +7,8 @@
 		animation-delay: 动画开始之前的延迟；
 		animation-iteration-count: 动画播放次数；
 		animation-direction: 是否轮流反向播放动画。
+
+2. es6 Set 实现数组去重
+		let a = [1, 1, 2, 3];
+		Array.from(new Set(a));
+		//=> [1, 2, 3]
