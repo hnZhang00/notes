@@ -1,0 +1,4 @@
+1. webpack 配置项
+		# devtool
+			若设置为 '#eval-source-map' , console.log 时，可追踪到某个文件的某一行，但会导致打包出来的文件变大。
+			可以通过设置变量 process.env.NODE_ENV，用于区分开发、测试、生产环境，避免文件过大而造成页面加载缓慢。
