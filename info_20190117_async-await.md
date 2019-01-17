@@ -79,5 +79,38 @@
     fn rejectFn1
 ```
 
+#### 同时执行多个 Promise
+```
+    var resolveFn1 = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('resolveFn1');resolve('resolveFn1')
+        }, 1000)
+    });
+
+    var resolveFn2 = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('resolveFn2');resolve('resolveFn2')
+        }, 1000)
+    });
+
+    var resolveFn3 = () => new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('resolveFn3');resolve('resolveFn3')
+        }, 1000)
+    });
+
+    var fn = async function () {
+        var results = await Promise.all([resolveFn1(), resolveFn2(), resolveFn3()]);
+        console.log('fn', results)
+    }
+    fn()
+
+    执行结果：
+    resolveFn1
+    resolveFn2
+    resolveFn3
+    fn ["resolveFn1", "resolveFn2", "resolveFn3"]
+```
+
 ### 重命名文件
 mv info_20190117 info_20190117_async-await.md
