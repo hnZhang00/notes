@@ -1,6 +1,0 @@
-1. ssh 通过账号密码进入服务器
-		ssh root@xx.xx.xx.xx
-		# xx.xx.xx.xx 为服务器IP
-
-2. scp 复制文件
-		scp 本地文件目录 root@服务器IP:需要复制到的服务器文件对应目录
