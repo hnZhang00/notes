@@ -104,6 +104,12 @@
         console.log('fn', results)
     }
     fn()
+    
+    // 或者
+    (async function () {
+        var results = await Promise.all([resolveFn1(), resolveFn2(), resolveFn3()]);
+        console.log('fn', results)
+    })()
 
     执行结果：
     resolveFn1
