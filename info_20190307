@@ -8,4 +8,4 @@
 		// inset: 可选 将外部阴影（outset）改为内部阴影
 
 2. 子元素阴影超出父元素范围会被剪切
-		解决: 将父元素的 overflow: hidden; 去掉
+		解决: 删掉掉父元素的 overflow: hidden; 
