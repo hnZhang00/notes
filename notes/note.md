@@ -232,7 +232,110 @@
 
 	![](images/0.1.png)
 ---
+33. 实现数组扁平化
+	> **flat 有兼容性问题**  
+	> flat 方法会移除数组中到空项
 
+	> flat(depth) 方法会递归到指定深度将所有子数组连接，并返回一个新数组，默认值是 1
+	```
+	arr.flat();
+	arr.flat(4);
+	```
+	> 若是不管深度多少实现扁平化，则使用 Infinity 作为参数
+	```
+	arr.flat(Infinity);
+	```
 
+	> 替代方案
+	```
+	function deepFlat(arr) {
+		return arr.reduce((acc, val) => acc.concat(Array.isArray(val) ? deepFlat(val) : val), []);
+	}
+	```
+---
+34. npm
+	> 切换镜像  
+	```
+	npm config set registry https://registry.npm.taobao.org/
+	```
+	```
+	npm config set registry https://registry.npmjs.org/
+	```
+---
+35. 箭头函数与普通函数的区别
+	> 箭头函数
+	- 没有自身的 this，若通过 bind、call、apply 改变 this 指向，传入的第一个参数将被忽略；
+	- 没有绑定 Arguments 对象；
+	- 不能作为构造器，和 new 一起用会抛出错误；
+	- 没有 prototype 属性；
+---
+36. 用 void 0 替换 undefined
+	##### undefined 非保留字，是全局对象的一个属性
+	> 在低版本的 IE 中可以被重写
+	```
+	var undefined = 10
+	undefined // -> undefined (Chrome) | 10 (IE 8)
+	```
+	> 在局部作用域中可以被重写
+	```
+	(function () {
+		var undefined = 11
+		undefined // -> 11
+	})()
+	```
+---
+37. RegExp.prototype.source
+	> **source** 属性会返回一个值为正则表达式对象的模式文本的字符串，但该字符串不会包含表达式两边的斜杆以及任何的标志字符；
+	```
+	var reg = /test/g;
+	reg.source // -> test
+	```
+---
+38. with
+	> 扩展作用域
+	```
+	var a, x, y;
+	var r = 10;
+	with (Math) {
+		a = PI * r * r;
+		x = r * cos(PI);
+		y = r * sin(PI / 2);
+	}
+	```
+---
+39. 判断是否是 DOM 元素
+	```
+	!!(el && el.nodeType === 1)
+	```
+---
+40. js 中最大的安全整数 (2^53 - 1)
+	Number.MAX_SAFT_INTEGER: Math.pow(2, 53) - 1
+---
+41. 位运算符
+	> &: 与；
+
+	> |: 或；
+
+	> ^: 异或；
+
+	> ~: 取反；
+
+	> <<: 无符号左移；
+	
+	> >>: 有符号右移；
+
+	> >>>: 无符号右移；
+---
+42. for in vs Object.keys
+	> for in 会遍历到对象原型链上的属性，可通过 hasOwnProperty 方法过滤；
+
+	> Object.keys 会返回自身可枚举的属性，且不会遍历到原型链上的属性；
+---
+43. Promise catch
+	> catch 方法返回一个 Promise，而它的行为与 catch 中的回调函数的返回值有关；
+	- pending: 1) 返回的是一个 Pending 状态的 Promise;
+	- resolved: 1) 返回的是一个值或者没有返回值; 2) 返回的是一个 Resolved 状态的 Promise;
+	- rejected: 1) 抛出一个错误; 2) 返回的是一个 Rejected 状态的 Promise;
+---
 
 
